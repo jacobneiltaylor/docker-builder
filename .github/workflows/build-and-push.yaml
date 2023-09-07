@@ -4,7 +4,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: 0 0 * * *
+    - cron: 0 6 * * 6
       
 jobs:
   build-containers:
@@ -39,7 +39,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/docker-base
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/builder
           tags: |
             type=raw,value=latest,enable=${{ steps.latest.outputs.is }}
             type=raw,value=${{ matrix.ubuntu_version }}
