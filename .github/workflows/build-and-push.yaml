@@ -44,12 +44,14 @@ jobs:
             type=raw,value=latest,enable=${{ steps.latest.outputs.is }}
             type=raw,value=${{ matrix.ubuntu_version }}
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           context: .
           platforms: linux/amd64,linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           build-args: |
             BASEVERSION=${{ matrix.ubuntu_version }}
