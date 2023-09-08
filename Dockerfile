@@ -31,7 +31,7 @@ RUN pip3 install jinja2-cli aws-sam-cli
 RUN $(install_go.sh 1.21.1 /opt/go) && CGO_ENABLED=0 go install github.com/envoyproxy/protoc-gen-validate@latest
 RUN $(install_rust.sh 1.72.0 /opt/rust) && cargo install just
 RUN $(install_pyenv.sh 2.3.26 /opt/pyenv) && pyenv install 3.11 && pyenv global 3.11 && pyenv rehash && update_pip.sh /opt/pyenv/shims/pip3
-RUN $(install_tfenv.sh 3.0.0 /opt/tfenv) && tfenv install 1.3.9 && && tfenv install 1.4.6 && tfenv install 1.5.7 && tfenv use 1.5.7
+RUN $(install_tfenv.sh 3.0.0 /opt/tfenv) && tfenv install 1.3.9 && tfenv install 1.4.6 && tfenv install 1.5.7 && tfenv use 1.5.7
 
 # Set environment variables
 ENV PATH "/opt/pyenv/shims:/opt/pyenv/bin:/opt/rust/bin:/opt/go/local/bin:/opt/go/bin:$PATH"
