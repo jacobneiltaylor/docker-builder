@@ -20,6 +20,7 @@ RUN apt_pre.sh && \
     liblzma-dev \
     tk-dev \
     libdb-dev \
+    python3-dev \
     libreadline-dev && \
     apt_post.sh
 
