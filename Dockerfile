@@ -23,6 +23,9 @@ RUN apt_pre.sh && \
     libreadline-dev && \
     apt_post.sh
 
+# Install platform Python packages
+RUN pip3 install jinja2-cli
+
 # Install standard toolchains and dev tools
 RUN $(install_go.sh 1.21.1 /opt/go) && CGO_ENABLED=0 go install github.com/envoyproxy/protoc-gen-validate@latest
 RUN $(install_rust.sh 1.72.0 /opt/rust) && cargo install just
