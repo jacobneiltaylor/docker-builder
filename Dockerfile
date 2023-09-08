@@ -26,7 +26,7 @@ RUN apt_pre.sh && \
 # Install standard toolchains and dev tools
 RUN $(install_go.sh 1.21.1 /opt/go) && CGO_ENABLED=0 go install github.com/envoyproxy/protoc-gen-validate@latest
 RUN $(install_rust.sh 1.72.0 /opt/rust) && cargo install just
-RUN $(install_pyenv.sh /opt/pyenv) && pyenv install 3.11 && pyenv global 3.11 && pyenv rehash
+RUN $(install_pyenv.sh /opt/pyenv) && pyenv install 3.11 && pyenv global 3.11 && pyenv rehash && update_pip.sh /opt/pyenv/shims/pip3
 
 # Set environmnet variables
 ENV PATH "/opt/pyenv/shims:/opt/pyenv/bin:/opt/rust/bin:/opt/go/local/bin:/opt/go/bin:$PATH"
