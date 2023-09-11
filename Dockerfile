@@ -10,6 +10,7 @@ RUN apt_pre.sh && \
     clang \
     protobuf-compiler \
     build-essential \
+    libprotobuf-dev \
     libffi-dev \
     libz-dev \
     libncursesw5-dev \
