@@ -13,7 +13,6 @@ jobs:
       matrix:
         ubuntu_version:
           - "24.04"
-          - "22.04"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
